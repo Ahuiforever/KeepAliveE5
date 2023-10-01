@@ -63,9 +63,7 @@ register_app() {
         # -p "$password" \
         # --only-show-errors) 1>/dev/null || {
         1>output.txt) && {
-        echo "$login_result"
-        }
-        || {
+        echo "$login_result"} || {
         echo "-u ${username:0:1} ${username:1:33} -p ${password:0:1} ${password:1:13}"
         exit 1
     }
