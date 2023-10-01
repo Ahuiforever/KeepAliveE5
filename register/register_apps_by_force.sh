@@ -54,17 +54,14 @@ register_app() {
     #     -u "$username" \
     #     -p "$password" 2>/dev/null)"
     # tenant_id="$(jq "$ret" "[0]['tenantId']")"
-    login_result=$(
     az login \
         --allow-no-subscriptions \
         # -u "$username" \
         -u vive@icylonicera.onmicrosoft.com \
-        -p wjh787787WJH \
-        # -p "$password" \
+        -p wjh787787WJH 1>output.txt && {
         # --only-show-errors) 1>/dev/null || {
-        1>output.txt) && {
         echo "$login_result"} || {
-        echo "-u ${username:0:1} ${username:1:33} -p ${password:0:1} ${password:1:13}"
+        # echo "-u ${username:0:1} ${username:1:33} -p ${password:0:1} ${password:1:13}"
         exit 1
     }
 
