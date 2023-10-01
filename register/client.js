@@ -27,6 +27,8 @@ const sleep = (seconds) =>
       `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=${config.client_id}&scope=offline_access%20User.Read&response_type=code&redirect_uri=${config.redirect_uri}`
     );
 
+    console.log('https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=${config.client_id}&scope=offline_access%20User.Read&response_type=code&redirect_uri=${config.redirect_uri}')
+
     // email
     await page.waitForSelector('input[type=email]');
     await page.type('input[type=email]', config.username);
