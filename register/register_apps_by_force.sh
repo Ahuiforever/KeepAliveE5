@@ -59,7 +59,7 @@ register_app() {
         -u "$username" \
         -p "$password" \
         --only-show-errors 1>/dev/null || {
-        echo -e "-u $username \n -p $password"
+        echo -e "-u $username \n-p $password"
         exit 1
     }
 
