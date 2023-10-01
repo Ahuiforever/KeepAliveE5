@@ -9,7 +9,7 @@ setTimeout(async () => {
 }, except.totalTimeout);
 
 const sleep = (seconds) =>
-  new Promise((resolve) => setTimeout(resolve, (seconds || 1) * 3000));
+  new Promise((resolve) => setTimeout(resolve, (seconds || 1) * 1000));
 
 (async () => {
   try {
@@ -46,7 +46,7 @@ const sleep = (seconds) =>
 
     // consent
     await page.waitForSelector('[type=checkbox]');
-    await sleep(1);
+    await sleep(3);
     await page.click('[type=checkbox]');
 
     // accept
