@@ -57,7 +57,8 @@ register_app() {
     az login \
         --allow-no-subscriptions \
         -u vive@icylonicera.onmicrosoft.com \
-        -p wjh787787WJH \
+        -p wjh787787WJH
+
     az login \
         --allow-no-subscriptions \
         -u vive@icylonicera.onmicrosoft.com \
