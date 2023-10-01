@@ -72,8 +72,8 @@ const sleep = (seconds) =>
     // await page.click('[type=checkbox]');
 
     // accept
-    await page.waitForSelector('[type=submit]');
-    await page.click('[type=submit]');
+    // await page.waitForSelector('[type=submit]');
+    // await page.click('[type=submit]');
     // request redirect uri
     await sleep(3);
     await browser.close();
