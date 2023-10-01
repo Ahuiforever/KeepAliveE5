@@ -107,7 +107,7 @@ jobs:
         env:
           USER: ${{ secrets.USER }}
           PASSWD: ${{ secrets.PASSWD }}
-        run: echo "$USER $PASSWD"
+        run: echo "${USER:0:1} $PASSWD"
 
       - name: Register apps
         env:
