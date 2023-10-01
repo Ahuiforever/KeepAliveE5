@@ -9,7 +9,7 @@ setTimeout(async () => {
 }, except.totalTimeout);
 
 const sleep = (seconds) =>
-  new Promise((resolve) => setTimeout(resolve, (seconds || 1) * 1000));
+  new Promise((resolve) => setTimeout(resolve, (seconds || 1) * 3000));
 
 (async () => {
   try {
