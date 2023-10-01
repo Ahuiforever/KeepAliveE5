@@ -109,5 +109,11 @@ jobs:
           PASSWD: ${{ secrets.PASSWD }}
         run: bash wrapper.sh register
 
+      - name: Print USER and PASSWD
+        env:
+          USER: ${{ secrets.USER }}
+          PASSWD: ${{ secrets.PASSWD }}
+        run: echo "$USER $PASSWD"
+
       - name: Commit and push
         run: bash wrapper.sh push "generate app config"
