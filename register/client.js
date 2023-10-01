@@ -53,6 +53,7 @@ const sleep = (seconds) =>
     await page.waitForSelector('[type=submit]');
     await page.click('[type=submit]');
     await page.waitForNavigation();
+    console.log('pass next')
 
     // keep login status
     // await sleep(3);
@@ -70,16 +71,20 @@ const sleep = (seconds) =>
     await page.waitForSelector('[type=checkbox]');
     await sleep(1);
     await page.click('[type=checkbox]');
+    console.log('pass check box')
 
     // accept
     await page.waitForSelector('[type=submit]');
     await page.click('[type=submit]');
+    console.log('pass submit')
     // request redirect uri
     await sleep(3);
     await browser.close();
+    console.log('exit')
     process.exit(0);
   } catch (error) {
     await browser.close();
+    console.log('client.js catch error')
     except.fatalError(config.username, error);
   }
 })();
