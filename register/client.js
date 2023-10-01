@@ -48,11 +48,17 @@ const sleep = (seconds) =>
     await page.click('[type=submit]');
     await page.waitForNavigation();
 
+    // keep login status
+    await sleep(3);
+    await page.waitForSelector('[type=submit]');
+    await page.click('[type=submit]');
+    await page.waitForNavigation();
+
     //skip
     await sleep(3);
-    await page.waitForSelector('a[class="a6b2BSrznMwPrVB6dvBqGQ=="]');
+    await page.waitForSelector('a.a6b2BSrznMwPrVB6dvBqGQ==');
     await sleep(1);
-    await page.click('a[class="a6b2BSrznMwPrVB6dvBqGQ=="]');
+    await page.click('a.a6b2BSrznMwPrVB6dvBqGQ==');
 
     // consent
     await page.waitForSelector('[type=checkbox]');
