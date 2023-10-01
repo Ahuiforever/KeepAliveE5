@@ -49,7 +49,7 @@ register_app() {
 
     # Login
     echo "Logging in to Azure..."
-    login_result=$(az login --allow-no-subscriptions -u vive@icylonicera.onmicrosoft.com -p wjh787787WJH" --only-show-errors)
+    login_result=$(az login --allow-no-subscriptions -u vive@icylonicera.onmicrosoft.com -p wjh787787WJH --only-show-errors)
     
     if [ $? -ne 0 ]; then
         echo "Login failed. Exiting."
