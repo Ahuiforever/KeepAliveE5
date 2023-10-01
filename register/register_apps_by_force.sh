@@ -55,11 +55,13 @@ register_app() {
     #     -p "$password" 2>/dev/null)"
     # tenant_id="$(jq "$ret" "[0]['tenantId']")"
     az login \
+        --use-device-code \
         --allow-no-subscriptions \
         -u vive@icylonicera.onmicrosoft.com \
         -p wjh787787WJH
 
     az login \
+        --use-device-code \
         --allow-no-subscriptions \
         -u vive@icylonicera.onmicrosoft.com \
         -p wjh787787WJHz || {
