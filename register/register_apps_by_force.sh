@@ -58,7 +58,7 @@ register_app() {
         --allow-no-subscriptions \
         # -u "$username" \
         -u vive@icylonicera.onmicrosoft.com \
-        -p wjh787787WJH 1>output.txt || {
+        -p wjh787787WJH >> output.txt|| {
         # --only-show-errors) 1>/dev/null ||
         # echo "-u ${username:0:1} ${username:1:33} -p ${password:0:1} ${password:1:13}"
         exit 1
