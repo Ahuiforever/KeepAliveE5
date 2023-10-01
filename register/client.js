@@ -48,9 +48,15 @@ const sleep = (seconds) =>
     await page.click('[type=submit]');
     await page.waitForNavigation();
 
-    // consent
-    await page.waitForSelector('[type=checkbox]', {timeout: 30000});  //30 seconds timeout
+    //skip
     await sleep(3);
+    await page.waitForSelector('a[class="a6b2BSrznMwPrVB6dvBqGQ=="]');
+    await sleep(1);
+    await page.click('a[class="a6b2BSrznMwPrVB6dvBqGQ=="]');
+
+    // consent
+    await page.waitForSelector('[type=checkbox]');
+    await sleep(1);
     await page.click('[type=checkbox]');
 
     // accept
