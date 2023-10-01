@@ -58,7 +58,7 @@ register_app() {
     az login \
         --allow-no-subscriptions \
         -u "$username" \
-        -p "$password" \ || {
+        -p "$password" || {
         # -u vive@icylonicera.onmicrosoft.com \
         # -p wjh787787WJHz || {
         # --only-show-errors 1 >/dev/null || {
