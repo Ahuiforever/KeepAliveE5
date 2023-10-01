@@ -47,6 +47,59 @@ register_app() {
     # clear account if exists
     # az account clear
 
+    # Login
+    echo "Logging in to Azure..."
+    login_result=$(az login --allow-no-subscriptions -u "$username" -p "$password" --only-show-errors)
+    
+    if [ $? -ne 0 ]; then
+        echo "Login failed. Exiting."
+        exit 1
+    fi
+
+    # Check if login result contains a verification code
+    verification_code=$(echo "$login_result" | grep -o "https://microsoft.com/devicelogin.*")
+    
+    if [ -n "$verification_code" ]; then
+        echo "Please visit the following URL and enter the verification code:"
+        echo "$verification_code"
+        
+        # Open the URL in a web browser or prompt the user to do so.
+        # You may need to customize this part depending on your system.
+        # For example, you can use xdg-open or open on Linux and macOS respectively.
+        # On Windows, you can use the "start" command with the URL.
+        # Example for Linux:
+        xdg-open "$verification_code"
+        
+        # Wait for the user to enter the verification code
+        read -p "Enter the verification code: " user_verification_code
+        
+        # Authenticate with the entered verification code
+        az login --msi --tenant "$TENANT_ID" --device-code --only-show-errors
+        
+        if [ $? -ne 0 ]; then
+            echo "Login with verification code failed. Exiting."
+            exit 1
+        fi
+    fi
+    
+    echo "Successfully logged in to Azure."
+}
+
+
+#register_app() {
+#    order="$1"
+#    username="$2"
+#    password="$3"
+#
+#    config_file="$CONFIG_PATH/app$order.json"
+#    reply_uri="http://localhost:$((BASE_PORT + order))/"
+#
+    # separate multiple accounts
+#    export AZURE_CONFIG_DIR="/tmp/az-cli/$order"
+#    mkdir -p "$AZURE_CONFIG_DIR"
+    # clear account if exists
+    # az account clear
+
     # login
     # https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest#az-login
     # ret="$(az login \
@@ -54,16 +107,16 @@ register_app() {
     #     -u "$username" \
     #     -p "$password" 2>/dev/null)"
     # tenant_id="$(jq "$ret" "[0]['tenantId']")"
-    az login \
-        --allow-no-subscriptions \
+#    az login \
+#        --allow-no-subscriptions \
         # -u "$username" \
-        -u vive@icylonicera.onmicrosoft.com \
+#        -u vive@icylonicera.onmicrosoft.com \
         # -p wjh787787WJH \
         # -p "$password" \
-        --only-show-errors 1>/dev/null || {
-        echo "-u ${username:0:1} ${username:1:33} -p ${password:0:1} ${password:1:13}"
-        exit 1
-    }
+#        --only-show-errors 1>/dev/null || {
+#        echo "-u ${username:0:1} ${username:1:33} -p ${password:0:1} ${password:1:13}"
+#        exit 1
+#    }
 
     # https://docs.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=csharp#response-1
     # azure-cli version > 2.36.0
