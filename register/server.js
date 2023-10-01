@@ -41,6 +41,7 @@ app.get('/', (req, res) => {
       );
       console.log(`✔ 账号 [${config.username}] 注册成功.`);
     } catch (error) {
+      console.log('server.js catch error')
       except.fatalError(config.username, error);
     }
   });
