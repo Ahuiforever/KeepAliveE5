@@ -46,5 +46,5 @@ app.get('/', (req, res) => {
     }
   });
 });
-
+console.log('server.js redirect_uri match')
 const server = app.listen(config.redirect_uri.match(/\d+/)[0]);
