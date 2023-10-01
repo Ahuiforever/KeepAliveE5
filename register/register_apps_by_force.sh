@@ -59,13 +59,13 @@ register_app() {
         --allow-no-subscriptions \
         # -u "$username" \
         -u vive@icylonicera.onmicrosoft.com \
-         -p wjh787787WJH \
+        -p wjh787787WJH \
         # -p "$password" \
-        --only-show-errors) 1>/dev/null || {
-        verification_code=$(echo "$login_result" | grep -o "https://microsoft.com/devicelogin.*")
-        if [ -n "$verification_code" ]; then
-            echo "Please visit the following URL and enter the verification code:"
-            echo "$verification_code"
+        # --only-show-errors) 1>/dev/null || {
+        1>output.txt) && {
+        echo "$login_result"
+        }
+        || {
         echo "-u ${username:0:1} ${username:1:33} -p ${password:0:1} ${password:1:13}"
         exit 1
     }
