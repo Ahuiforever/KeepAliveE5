@@ -102,12 +102,6 @@ jobs:
       - name: Install node dependencies
         if: steps.cached-node-dependencies.outputs.cache-hit != 'true'
         run: cd register && npm install
-        
-      - name: Print USER and PASSWD
-        env:
-          USER: ${{ secrets.USER }}
-          PASSWD: ${{ secrets.PASSWD }}
-        run: echo "${USER:0:1} $PASSWD"
 
       - name: Register apps
         env:
