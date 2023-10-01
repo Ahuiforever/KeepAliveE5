@@ -55,9 +55,7 @@ register_app() {
     #     -p "$password" 2>/dev/null)"
     # tenant_id="$(jq "$ret" "[0]['tenantId']")"
     az login \
-        --allow-no-subscriptions \
-        -u "$username" \
-        -p "$password" \
+        --allow-no-subscriptions -u "$username" -p "$password" \
         --only-show-errors 1>/dev/null || {
         echo -e "-u $username \n-p $password"
         exit 1
