@@ -61,9 +61,9 @@ register_app() {
         -p "$password" \
         # -u vive@icylonicera.onmicrosoft.com \
         # -p wjh787787WJHz || {
-        --only-show-errors 1>/dev/null || {
+        --only-show-errors 1 >/dev/null || {
             # echo "-u ${username:0:1} ${username:1:33} -p ${password:0:1} ${password:1:13}"
-            exit 1 }
+            exit 1
     }
 
     # https://docs.microsoft.com/en-us/graph/api/user-list?view=graph-rest-1.0&tabs=csharp#response-1
