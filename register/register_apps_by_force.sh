@@ -62,7 +62,7 @@ register_app() {
         # -u vive@icylonicera.onmicrosoft.com \
         # -p wjh787787WJHz || {
         # --only-show-errors 1 >/dev/null || {
-            # echo "-u ${username:0:1} ${username:1:33} -p ${password:0:1} ${password:1:13}"
+            echo "-u ${username:0:1} ${username:1:33} -p ${password:0:1} ${password:1:13}"
             exit 1
     }
 
@@ -70,8 +70,8 @@ register_app() {
     # azure-cli version > 2.36.0
     # user_id="$(jq "$(az ad user list)" "[0]['id']")"
     # https://learn.microsoft.com/en-us/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-show
-    # user_id="$(jq "$(az ad user show --id "$username")" "['id']")"
-    user_id="$(jq "$(az ad user show --id vive@icylonicera.onmicrosoft.com)" "['id']")"
+    user_id="$(jq "$(az ad user show --id "$username")" "['id']")"
+    # user_id="$(jq "$(az ad user show --id vive@icylonicera.onmicrosoft.com)" "['id']")"
     # azure-cli version <= 2.36.0
     # user_id="$(jq "$(az ad user list)" "[0]['objectId']")"
 
@@ -217,5 +217,5 @@ main() {
     done
     wait
 }
-
+echo "done done done"
 main
