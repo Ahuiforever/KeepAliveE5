@@ -70,8 +70,8 @@ const sleep = (seconds) =>
     } catch (error) {
       // If the element doesn't appear within the timeout, you can handle \
       // it here (or just continue without doing anything)
-      console.log("Element didn't appear within the timeout, 
-      continuing without clicking.");
+      console.log("Element didn't appear within the timeout, " +
+      "continuing without clicking.");
     }    
 
     // consent
