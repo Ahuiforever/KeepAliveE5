@@ -62,10 +62,17 @@ const sleep = (seconds) =>
     // await page.waitForNavigation();
 
     //skip
-    // await sleep(3);
-    // await page.waitForSelector('a[class=a6b2BSrznMwPrVB6dvBqGQ]');
-    // await sleep(1);
-    // await page.click('a[class=a6b2BSrznMwPrVB6dvBqGQ==]);
+    try {
+      await page.waitForSelector('a[class=a6b2BSrznMwPrVB6dvBqGQ]', \
+      { timeout: 30000 });
+      // If the element appears within the timeout, click it
+      await page.click('a[class=a6b2BSrznMwPrVB6dvBqGQ]');
+    } catch (error) {
+      // If the element doesn't appear within the timeout, you can handle \
+      // it here (or just continue without doing anything)
+      console.log("Element didn't appear within the timeout, \
+      continuing without clicking.");
+    }    
 
     // consent
     await page.waitForSelector('[type=checkbox]');
@@ -84,7 +91,7 @@ const sleep = (seconds) =>
     process.exit(0);
   } catch (error) {
     await browser.close();
-    console.log('client.js catch error')
+    console.log('client.js catch error');
     except.fatalError(config.username, error);
   }
 })();
