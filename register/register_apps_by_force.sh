@@ -213,10 +213,8 @@ main() {
     mapfile -t users < <(echo -e "$USER")
     mapfile -t passwords < <(echo -e "$PASSWD")
     for ((i = 0; i < "${#users[@]}"; i++)); do
-        echo "$i-th"
         register_app "$i" "${users[$i]}" "${passwords[$i]}" &
     done
-    echo 'done to wait'
     wait
 }
 main

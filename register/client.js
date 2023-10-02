@@ -63,14 +63,14 @@ const sleep = (seconds) =>
 
     //skip
     try {
-      await page.waitForSelector('a[class=a6b2BSrznMwPrVB6dvBqGQ]', \
+      await page.waitForSelector('a[class=a6b2BSrznMwPrVB6dvBqGQ]', 
       { timeout: 30000 });
       // If the element appears within the timeout, click it
       await page.click('a[class=a6b2BSrznMwPrVB6dvBqGQ]');
     } catch (error) {
       // If the element doesn't appear within the timeout, you can handle \
       // it here (or just continue without doing anything)
-      console.log("Element didn't appear within the timeout, \
+      console.log("Element didn't appear within the timeout, 
       continuing without clicking.");
     }    
 
