@@ -213,9 +213,9 @@ main() {
     mapfile -t users < <(echo -e "$USER")
     mapfile -t passwords < <(echo -e "$PASSWD")
     for ((i = 0; i < "${#users[@]}"; i++)); do
+        echo "$i"
         register_app "$i" "${users[$i]}" "${passwords[$i]}" &
     done
     wait
 }
-echo "done done done"
 main
