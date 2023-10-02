@@ -52,7 +52,6 @@ const sleep = (seconds) =>
     await sleep(3);
     await page.waitForSelector('[type=submit]');
     await page.click('[type=submit]');
-    await page.waitForNavigation();
 
     // keep login status
     // await sleep(3);
