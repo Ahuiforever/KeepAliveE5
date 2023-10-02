@@ -59,7 +59,7 @@ register_app() {
         --allow-no-subscriptions \
         -u "$username" \
         -p "$password" \
-        --only-show-errors || {
+        --only-show-errors 1>dev>null || {
         # -u vive@icylonicera.onmicrosoft.com \
         # -p wjh787787WJHz || {
         # --only-show-errors 1 >/dev/null || {

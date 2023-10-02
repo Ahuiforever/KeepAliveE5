@@ -46,18 +46,18 @@ const sleep = (seconds) =>
     await sleep(3);
     await page.waitForSelector('[type=submit]');
     await page.click('[type=submit]');
-    await page.waitForNavigation();
+    // await page.waitForNavigation();
 
     // next
-    await sleep(3);
-    await page.waitForSelector('[type=submit]');
-    await page.click('[type=submit]');
-
-    // keep login status
     // await sleep(3);
     // await page.waitForSelector('[type=submit]');
     // await page.click('[type=submit]');
-    // await page.waitForNavigation();
+
+    // keep login status
+    await sleep(3);
+    await page.waitForSelector('[type=submit]');
+    await page.click('[type=submit]');
+    await page.waitForNavigation();
 
     //skip
 //    try {
@@ -79,9 +79,9 @@ const sleep = (seconds) =>
 //    console.log('pass check box')
 
     // accept
-    await page.waitForSelector('[type=submit]', { timeout: 30000 });
-    await page.click('[type=submit]');
-    console.log('pass submit')
+//    await page.waitForSelector('[type=submit]', { timeout: 30000 });
+//    await page.click('[type=submit]');
+//    console.log('pass submit')
     // request redirect uri
     await sleep(3);
     await browser.close();
