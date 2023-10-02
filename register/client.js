@@ -53,7 +53,6 @@ const sleep = (seconds) =>
     await page.waitForSelector('[type=submit]');
     await page.click('[type=submit]');
     await page.waitForNavigation();
-    console.log('pass next')
 
     // keep login status
     // await sleep(3);
@@ -62,20 +61,20 @@ const sleep = (seconds) =>
     // await page.waitForNavigation();
 
     //skip
-    try {
-      await page.waitForSelector('a[class=a6b2BSrznMwPrVB6dvBqGQ]', 
-      { timeout: 30000 });
+//    try {
+//      await page.waitForSelector('a[class=a6b2BSrznMwPrVB6dvBqGQ]', 
+//      { timeout: 30000 });
       // If the element appears within the timeout, click it
-      await page.click('a[class=a6b2BSrznMwPrVB6dvBqGQ]');
-    } catch (error) {
+//      await page.click('a[class=a6b2BSrznMwPrVB6dvBqGQ]');
+//    } catch (error) {
       // If the element doesn't appear within the timeout, you can handle \
       // it here (or just continue without doing anything)
-      console.log("Element didn't appear within the timeout, " +
-      "continuing without clicking.");
-    }    
+//      console.log("Element didn't appear within the timeout, " +
+//      "continuing without clicking.");
+//    }
 
     // consent
-    await page.waitForSelector('[type=checkbox]');
+    await page.waitForSelector('[type=checkbox]', { timeout: 30000 });
     await sleep(1);
     await page.click('[type=checkbox]');
     console.log('pass check box')
@@ -91,7 +90,6 @@ const sleep = (seconds) =>
     process.exit(0);
   } catch (error) {
     await browser.close();
-    console.log('client.js catch error');
     except.fatalError(config.username, error);
   }
 })();
