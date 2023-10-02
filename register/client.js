@@ -73,13 +73,13 @@ const sleep = (seconds) =>
 //    }
 
     // consent
-    await page.waitForSelector('[type=checkbox]', { timeout: 30000 });
-    await sleep(1);
-    await page.click('[type=checkbox]');
-    console.log('pass check box')
+//    await page.waitForSelector('[type=checkbox]', { timeout: 30000 });
+//    await sleep(1);
+//    await page.click('[type=checkbox]');
+//    console.log('pass check box')
 
     // accept
-    await page.waitForSelector('[type=submit]');
+    await page.waitForSelector('[type=submit]', { timeout: 30000 });
     await page.click('[type=submit]');
     console.log('pass submit')
     // request redirect uri
