@@ -57,7 +57,7 @@ const sleep = (seconds) =>
     await sleep(3);
     await page.waitForSelector('[type=submit]');
     await page.click('[type=submit]');
-    await page.waitForNavigation();
+//    await page.waitForNavigation();
 
     //skip
 //    try {
