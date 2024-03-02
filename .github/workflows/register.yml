@@ -10,7 +10,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: master
           token: ${{ secrets.PAT }}
@@ -26,7 +26,7 @@ jobs:
 
       - name: Setup nodejs
         id: setup-nodejs
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18.14.2
           # cache: 'npm'
@@ -34,13 +34,13 @@ jobs:
 
       - name: Set up python
         id: setup-python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10.10'
 
       - name: Load cached utils
         id: cached-utils
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.local
           key: ${{ runner.os }}-utils-az-poetry-20230204
@@ -83,7 +83,7 @@ jobs:
 
       - name: Load cached venv
         id: cached-poetry-dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: .venv
           key: ${{ runner.os }}-python-${{ steps.setup-python.outputs.python-version }}-venv-${{ hashFiles('**/poetry.lock') }}
@@ -94,7 +94,7 @@ jobs:
 
       - name: Load cached node dependencies
         id: cached-node-dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: register/node_modules
           key: ${{ runner.os }}-node-${{ steps.setup-nodejs.outputs.node-version }}-pkg-${{ hashFiles('**/package.json') }}
